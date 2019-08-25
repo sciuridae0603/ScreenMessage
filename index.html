@@ -1,0 +1,73 @@
+﻿<html>
+
+<head>
+    <title>Screen Message</title>
+
+    <!-- Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="Screen Message, Sciuridae, Online, Tool, Utilities" />
+    <meta name="description" content="Online Screen Message Tool" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Scripts -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body onload="init()" onresize="adjust()">
+    <textarea id="textarea" onKeyUp="adjust()" onpaste="adjust()" oninput="adjust()" spellcheck="false">(っ・Д・)っ</textarea>
+    <input type="color" id="colorPicker" style="display: none">
+    <span id="test"></span>
+
+    <div id="sidepanel">
+        <div class="buttonGroup">
+            <span class="title">
+				背景顏色
+			</span>
+            <button onclick="background('white')" style="background:white;"></button>
+            <button onclick="background('black')" style="background:black;"></button>
+            <button onclick="background('red')" style="background:red;"></button>
+            <button onclick="background('orange')" style="background:orange;"></button>
+            <button onclick="background('yellow')" style="background:yellow;"></button>
+            <button onclick="background('green')" style="background:green;"></button>
+            <button onclick="background('blue')" style="background:blue;"></button>
+            <button onclick="background('indigo')" style="background:indigo;"></button>
+            <button onclick="background('purple')" style="background:purple;"></button>
+            <button onclick="background('rainbow')" class="rainbow-background"></button>
+            <button onclick="background('custom')" class="withText">自訂</button>
+        </div>
+        <div class="buttonGroup">
+            <span class="title">
+				文字顏色
+			</span>
+            <button onclick="fontColor('white')" style="background:white;"></button>
+            <button onclick="fontColor('black')" style="background:black;"></button>
+            <button onclick="fontColor('red')" style="background:red;"></button>
+            <button onclick="fontColor('orange')" style="background:orange;"></button>
+            <button onclick="fontColor('yellow')" style="background:yellow;"></button>
+            <button onclick="fontColor('green')" style="background:green;"></button>
+            <button onclick="fontColor('blue')" style="background:blue;"></button>
+            <button onclick="fontColor('indigo')" style="background:indigo;"></button>
+            <button onclick="fontColor('purple')" style="background:purple;"></button>
+            <button onclick="fontColor('rainbow')" class="rainbow-background"></button>
+            <button onclick="fontColor('custom')" class="withText">自訂</button>
+        </div>
+        <div class="buttonGroup">
+            <span class="title">
+				文字效果
+			</span>
+            <button onclick="mode('blink')" class="withText largeButton">閃爍</button>
+            <button onclick="mode('pulse')" class="withText largeButton">脈衝</button>
+        </div>
+
+    </div>
+    
+</body>
+
+</html>

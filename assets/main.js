@@ -66,7 +66,9 @@ var Intervals = {
 
 Array.prototype.remove = function() {
     var toDelete = arguments[0];
-    this.splice(this.indexOf(toDelete), 1);
+    if(this.indexOf(toDelete)){
+        this.splice(this.indexOf(toDelete), 1);
+    }
     return this;
 };
 
@@ -80,8 +82,9 @@ function isMobile() {
 
 // Rainbow Functions
 function startRainbow(type) {
+    var el = (type == "background") ? document.body : textarea;
     Intervals[type + "rainbow"] = setInterval(() => {
-        textarea.style[type] = colors[Math.floor(Math.random() * colors.length)]
+        el.style[type] = colors[Math.floor(Math.random() * colors.length)]
     }, 150)
 }
 
@@ -94,13 +97,14 @@ function stopRainbow(type) {
 
 // Color
 function setColor(type, color) {
-    el = (type == "background") ? document.body : textarea;
+    var el = (type == "background") ? document.body : textarea;
     stopRainbow(type);
     if (color == "custom") {
         colorPicker.click()
         colorPicker.onchange = () => {
             el.style[type] = colorPicker.value;
             options[type] = colorPicker.value;
+            setHash();
         }
     } else if (color == "rainbow") {
         startRainbow(type)

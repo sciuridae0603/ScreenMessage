@@ -5,57 +5,40 @@ var options = {
     "modes": [],
 };
 
-var colors = ["#e87d7d",
-    "#e88a7d",
-    "#e8977d",
-    "#e8a47d",
-    "#e8b07d",
-    "#e8bd7d",
-    "#e8ca7d",
-    "#e8d77d",
-    "#e8e47d",
-    "#dfe87d",
-    "#d3e87d",
-    "#c6e87d",
-    "#b9e87d",
-    "#ace87d",
-    "#9fe87d",
-    "#92e87d",
-    "#86e87d",
-    "#7de881",
-    "#7de88e",
-    "#7de89b",
-    "#7de8a8",
-    "#7de8b5",
-    "#7de8c1",
-    "#7de8ce",
-    "#7de8db",
-    "#7de8e8",
-    "#7ddbe8",
-    "#7dcee8",
-    "#7dc1e8",
-    "#7db5e8",
-    "#7da8e8",
-    "#7d9be8",
-    "#7d8ee8",
-    "#7d81e8",
-    "#867de8",
-    "#927de8",
-    "#9f7de8",
-    "#ac7de8",
-    "#b97de8",
-    "#c67de8",
-    "#d37de8",
-    "#df7de8",
-    "#e87de4",
-    "#e87dd7",
-    "#e87dca",
-    "#e87dbd",
-    "#e87db0",
-    "#e87da4",
-    "#e87d97",
-    "#e87d8a",
-    "#e87d7d"
+var colors = [
+    "#ff4f4f",
+    "#ff664f",
+    "#ff984f",
+    "#ffb64f",
+    "#ffd64f",
+    "#ffed4f",
+    "#f6ff4f",
+    "#d3ff4f",
+    "#b9ff4f",
+    "#9bff4f",
+    "#98ff4f",
+    "#7eff4f",
+    "#58ff4f",
+    "#4fff6c",
+    "#4fff8d",
+    "#4fffaa",
+    "#4fffcd",
+    "#4fffea",
+    "#4ff9ff",
+    "#4fd9ff",
+    "#4fcdff",
+    "#4fb3ff",
+    "#4fa7ff",
+    "#4f87ff",
+    "#4f58ff",
+    "#724fff",
+    "#9b4fff",
+    "#bc4fff",
+    "#d64fff",
+    "#f34fff",
+    "#ff4fd3",
+    "#ff4fa7",
+    "#ff4f78"
 ]
 
 var textarea = null;
@@ -66,7 +49,7 @@ var Intervals = {
 
 Array.prototype.remove = function() {
     var toDelete = arguments[0];
-    if(this.indexOf(toDelete)){
+    if (this.indexOf(toDelete)) {
         this.splice(this.indexOf(toDelete), 1);
     }
     return this;
@@ -125,19 +108,19 @@ function background(backgroundColor) {
 
 // Modes
 function pulse() {
-    if(options.modes.includes("pulse")){
+    if (options.modes.includes("pulse")) {
         clearInterval(Intervals["pulse"]);
         textarea.style.opacity = "";
         options.modes.remove("pulse");
-    }else{
+    } else {
         options.modes.push("pulse");
         var status = true;
         Intervals["pulse"] = setInterval(() => {
-            if(status){
-                textarea.style.opacity = 0 ;
+            if (status) {
+                textarea.style.opacity = 0;
                 status = false;
-            }else{
-                textarea.style.opacity = 1 ;
+            } else {
+                textarea.style.opacity = 1;
                 status = true;
             }
         }, 400)
@@ -146,19 +129,19 @@ function pulse() {
 }
 
 function blink() {
-    if(options.modes.includes("blink")){
+    if (options.modes.includes("blink")) {
         clearInterval(Intervals["blink"]);
         textarea.style.display = "";
         options.modes.remove("blink");
-    }else{
+    } else {
         options.modes.push("blink");
         var status = true;
         Intervals["blink"] = setInterval(() => {
-            if(status){
-                textarea.style.display = "none" ;
+            if (status) {
+                textarea.style.display = "none";
                 status = false;
-            }else{
-                textarea.style.display = "" ;
+            } else {
+                textarea.style.display = "";
                 status = true;
             }
         }, 400)
@@ -186,7 +169,7 @@ function adjust() {
     ratioX = (window.innerWidth) / test.offsetWidth;
     ratioY = (window.innerHeight) / test.offsetHeight;
     ratio = Math.min(ratioX, ratioY);
-    fontSize = Math.floor(25 * ratio) + "px"
+    fontSize = Math.floor(30 * ratio) + "px"
     textarea.style.fontSize = fontSize;
     newHeight = Math.ceil(test.offsetHeight * ratio);
     textarea.style.paddingTop = Math.floor((window.innerHeight - newHeight) / 2) + "px";

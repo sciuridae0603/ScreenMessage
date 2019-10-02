@@ -111,7 +111,7 @@ function pulse() {
     if (options.modes.includes("pulse")) {
         clearInterval(Intervals["pulse"]);
         textarea.style.opacity = "";
-        options.modes.remove("pulse");
+        removeMode("pulse");
     } else {
         options.modes.push("pulse");
         var status = true;
@@ -132,7 +132,7 @@ function blink() {
     if (options.modes.includes("blink")) {
         clearInterval(Intervals["blink"]);
         textarea.style.display = "";
-        options.modes.remove("blink");
+        removeMode("blink");
     } else {
         options.modes.push("blink");
         var status = true;
@@ -147,6 +147,14 @@ function blink() {
         }, 400)
     }
     setHash();
+}
+
+function removeMode(modeName){
+    if(options.modes.length == 1){
+        options.modes.remove(0);
+    }else{
+        options.modes.remove(modeName);
+    }
 }
 
 function mode(modeName) {

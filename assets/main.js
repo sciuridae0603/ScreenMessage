@@ -6,44 +6,26 @@ var options = {
 };
 
 var colors = [
-    "#ff4f4f",
-    "#ff664f",
-    "#ff984f",
-    "#ffb64f",
-    "#ffd64f",
-    "#ffed4f",
-    "#f6ff4f",
-    "#d3ff4f",
-    "#b9ff4f",
-    "#9bff4f",
-    "#98ff4f",
-    "#7eff4f",
-    "#58ff4f",
-    "#4fff6c",
-    "#4fff8d",
-    "#4fffaa",
-    "#4fffcd",
-    "#4fffea",
-    "#4ff9ff",
-    "#4fd9ff",
-    "#4fcdff",
-    "#4fb3ff",
-    "#4fa7ff",
-    "#4f87ff",
-    "#4f58ff",
-    "#724fff",
-    "#9b4fff",
-    "#bc4fff",
-    "#d64fff",
-    "#f34fff",
-    "#ff4fd3",
-    "#ff4fa7",
-    "#ff4f78"
+    "rgb(255,0,0)",
+    "rgb(255,127,0)",
+    "rgb(255,255,0)",
+    "rgb(127,255,0)",
+    "rgb(0,255,0)",
+    "rgb(0,255,127)",
+    "rgb(0,255,255)",
+    "rgb(0,127,255)",
+    "rgb(0,0,255)",
+    "rgb(127,0,255)",
+    "rgb(255,0,255)",
+    "rgb(255,0,127)"
 ]
 
 var textarea = null;
 var colorPicker = null;
 var Intervals = {
+
+};
+var RainbowPositions = {
 
 };
 
@@ -56,18 +38,23 @@ Array.prototype.remove = function() {
 };
 
 function isMobile() {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true;
-    }
-    return false;
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
 
 
 // Rainbow Functions
 function startRainbow(type) {
     var el = (type == "background") ? document.body : textarea;
+    if (!(type in RainbowPositions)) {
+        RainbowPositions[type] = 0;
+    }
     Intervals[type + "rainbow"] = setInterval(() => {
-        el.style[type] = colors[Math.floor(Math.random() * colors.length)]
+        console.log(RainbowPositions[type])
+        if ((RainbowPositions[type] + 1) == colors.length) {
+            RainbowPositions[type] = -1
+        }
+        el.style[type] = colors[RainbowPositions[type]]
+        RainbowPositions[type] += 1;
     }, 150)
 }
 
@@ -149,10 +136,10 @@ function blink() {
     setHash();
 }
 
-function removeMode(modeName){
-    if(options.modes.length == 1){
+function removeMode(modeName) {
+    if (options.modes.length == 1) {
         options.modes.remove(0);
-    }else{
+    } else {
         options.modes.remove(modeName);
     }
 }

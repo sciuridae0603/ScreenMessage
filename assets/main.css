@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
-
-*{
+* {
     font-family: 'Noto Sans TC', sans-serif;
 }
 
-body{
+body {
     margin: 0;
     transition: 0.6s;
 }
@@ -14,63 +13,60 @@ button {
 }
 
 #sidepanel {
-    display:flex;
-
+    display: flex;
     flex-direction: column;
-
     width: 15em;
     left: -18em;
     padding: 1em;
     transition: 0.6s;
     position: fixed;
     height: 100%;
-    background:white;
+    background: white;
     border-right: gray solid 3px;
 }
 
-.buttonGroup{
-    display:flex;
+.buttonGroup {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.buttonGroup > .title{
-    width:100%;
+.buttonGroup>.title {
+    width: 100%;
     margin-bottom: 0.2em;
     margin-top: 0.8em;
 }
 
-.buttonGroup > .description{
-    width:100%;
+.buttonGroup>.description {
+    width: 100%;
     margin-bottom: 0.1em;
     margin-top: 0.1em;
 }
 
-.buttonGroup > button{
-    width:2em;
-    height:2em;
+.buttonGroup>button {
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     box-shadow: none;
     border-style: none;
-    border : 2px #666666 solid;
-    margin:0.1em;
+    border: 2px #666666 solid;
+    margin: 0.1em;
 }
 
-.buttonGroup > button.withText{
-    width:unset;
+.buttonGroup>button.withText {
+    width: unset;
     border-radius: 1em;
 }
 
-.buttonGroup > button.largeButton{
-    width:5em;
-    height:3em;
+.buttonGroup>button.largeButton {
+    width: 5em;
+    height: 3em;
     background: #f2f2f2;
-    font-size:1em;
+    font-size: 1em;
 }
 
 #textarea {
     background: transparent;
-    transition: 0.1s;
     position: absolute !important;
     top: 0px !important;
     left: 0px !important;
@@ -85,8 +81,7 @@ button {
     overflow: hidden !important;
     resize: none !important;
     outline: none !important;
-
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 #test {
@@ -102,5 +97,5 @@ button {
 }
 
 .rainbow-background {
-    background: linear-gradient(90deg,#ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3) !important;
+    background: linear-gradient(90deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3) !important;
 }

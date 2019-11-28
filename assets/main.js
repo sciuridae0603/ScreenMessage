@@ -49,13 +49,12 @@ function startRainbow(type) {
         RainbowPositions[type] = 0;
     }
     Intervals[type + "rainbow"] = setInterval(() => {
-        console.log(RainbowPositions[type])
         if ((RainbowPositions[type] + 1) == colors.length) {
             RainbowPositions[type] = -1
         }
         el.style[type] = colors[RainbowPositions[type]]
         RainbowPositions[type] += 1;
-    }, 150)
+    }, 200)
 }
 
 function stopRainbow(type) {

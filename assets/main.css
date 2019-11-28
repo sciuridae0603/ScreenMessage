@@ -81,7 +81,7 @@ button {
     overflow: hidden !important;
     resize: none !important;
     outline: none !important;
-    transition: 0.1s;
+    transition: 0.2s;
 }
 
 #test {
